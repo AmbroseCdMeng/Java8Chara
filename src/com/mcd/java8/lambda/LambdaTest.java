@@ -96,9 +96,10 @@ public class LambdaTest {
     public void functionComplex() {
         Function<Integer, Integer> f = x -> x + 1;
         Function<Integer, Integer> g = x -> x * 2;
-        Function<Integer, Integer> h = f.andThen(g);
-
-        int result = h.apply(2);
+        Function<Integer, Integer> h1 = f.andThen(g);// h(x) = g(f(x))
+        int result1 = h1.apply(1);// 4
+        Function<Integer, Integer> h2 = f.compose(g);// h(x) = f(g(x))
+        int result2 = h2.apply(1);// 3
     }
 
 
