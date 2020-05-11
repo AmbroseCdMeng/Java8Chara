@@ -2,8 +2,17 @@ package com.mcd.java8.stream;
 
 import org.junit.Test;
 
+import java.io.IOException;
+import java.lang.reflect.Array;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
+import java.util.function.IntSupplier;
 import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.groupingBy;
@@ -13,12 +22,14 @@ public class StreamTest {
     private List<Dish> dishes = new ArrayList<>();
 
     {
-        dishes.add(new Dish("potato", "vegetables",Math.random() * 100));
-        dishes.add(new Dish("banana","fruit",Math.random() * 100));
-        dishes.add(new Dish("carrot","vegetables",Math.random() * 100));
-        dishes.add(new Dish("onion", "vegetables",Math.random() * 100));
-        dishes.add(new Dish("peach", "fruit",Math.random() * 100));
-        dishes.add(new Dish("mango", "fruit",Math.random() * 100));
+        dishes.add(new Dish("potato", "vegetables", Math.random() * 100));
+        dishes.add(new Dish("banana", "fruit", Math.random() * 100));
+        dishes.add(new Dish("carrot", "vegetables", Math.random() * 100));
+        dishes.add(new Dish("onion", "vegetables", Math.random() * 100));
+        dishes.add(new Dish("peach", "fruit", Math.random() * 100));
+        dishes.add(new Dish("mango", "fruit", Math.random() * 100));
+        dishes.add(new Dish("beef", "meat", Math.random() * 100));
+        dishes.add(new Dish("meat", "meat", Math.random() * 100));
     }
     /*
     筛选 List<Dish> 中 calories 低于 400 的集合
@@ -48,19 +59,26 @@ public class StreamTest {
 
     //Java 8 写法
     @Test
-    public void filterCalories_8(){
+    public void filterCalories_8() {
         List<String> lowCaloricDishesName = dishes.stream() // 如果需要利用多核架构并行执行，只需要将 stream 换为 parallelStream
                 .filter(dish -> dish.getCalories() < 400d)  //流筛选：calories < 400
                 .sorted(comparing(Dish::getCalories))       //流排序：calories
                 .map(Dish::getName)                         //流提取：name
                 .limit(3)                                   //流截断：3 个
-                .collect(toList());                         //流执行/流转换：list  || collect 触发流水线执行并关闭
+                .collect(toList());                         //流执行/流转换：list  || collect 终端操作触发流水线执行并关闭
+
+        /*
+         * 流的使用一般包含 3 件事：
+         *   1、一个数据源来执行查询
+         *   2、n 个中间操作形成流的流水线    filter/map/limit/sorted/distinct
+         *   3、一个终端操作执行流并返回结果    forEach/count/collect
+         * */
 
         /* 可以利用 print 查看流的执行过程 */
         List<String> low = dishes.stream()
                 .filter(dish -> {
                     System.out.println("filtering" + dish.getName());
-                    return dish .getCalories() < 400d;
+                    return dish.getCalories() < 400d;
                 })
                 .map(dish -> {
                     System.out.println("mapping" + dish.getName());
@@ -78,8 +96,136 @@ public class StreamTest {
     }
 
     @Test
-    public void filterCalories_8_groupBy(){
+    public void filterCalories_8_groupBy() {
         Map<String, List<Dish>> dishesByType = dishes.stream().collect(groupingBy(Dish::getType));
+    }
+
+    //Java8 流的常用方法
+    @Test
+    public void test() {
+        //1、谓词筛选 filter
+        List<Dish> dishes1 = dishes.stream().filter(Dish::isVegetarian).collect(toList());
+
+        //2、去重 distinct
+        List<String> types = dishes.stream().map(Dish::getName).distinct().collect(toList());
+
+        //3、截断流 limit
+        List<Dish> dishes2 = dishes.stream().limit(3).collect(toList());
+
+        //4、跳过流 skip
+        List<Dish> dishes3 = dishes.stream().skip(2).collect(toList());
+
+        //5、映射
+        //5.1 map
+        List<String> dishes4 = dishes.stream().map(Dish::getName).collect(toList());
+        List<Integer> dishes5 = dishes.stream().map(Dish::getName).map(String::length).collect(toList());
+
+        //5.2 flatMap
+        List<String> words = Arrays.asList("Hello", "World");//给定 ['Hello', 'World']  返回里面不同字符 ['H', 'e', 'l', 'o', 'W', 'r', 'd']
+        List<String[]> chars1 = words.stream()
+                .map(word -> word.split(" "))
+                .distinct()
+                .collect(toList());
+        // flatMap 方法让你把一个流中的每个值都换成另一个流，然后把所有流连接起来成为一个流
+        List<String> chars2 = words.stream()
+                .map(word -> word.split(" "))
+                .flatMap(Arrays::stream).distinct()
+                .collect(toList());
+
+        //6、谓词
+        //6.1 至少匹配一个 anyMatch       短路匹配
+        boolean match1 = dishes.stream().anyMatch(Dish::isVegetarian);
+        //6.2 匹配所有 allMatch           短路匹配
+        boolean match2 = dishes.stream().allMatch(dish -> dish.getCalories() < 1000);
+        //6.3 不匹配                      短路匹配
+        boolean match3 = dishes.stream().noneMatch(dish -> dish.getCalories() < 1000);
+
+        //7、查找元素 findAny             短路匹配，找到结果时立即结束
+        Optional<Dish> dishes6 = dishes.stream().filter(Dish::isVegetarian).findAny();
+        //  Optional 容器类。避免 null 检查
+        //      isPresent() 在 Optional 包含值时返回 true 否则返回 false
+        //      isPresent(Consumer<T> block) 在 Optional 包含值时执行 block 内的相关代码
+        //      T get() 在值存在时返回值，否则抛出 NoSuchElement 异常
+        //      T.orElse(T other) 在值存在时返回值，否则返回默认值
+
+        //8、查找第一个元素 findFirst()
+        Optional<Dish> first = dishes.stream().findFirst();
+
+        //9、forEach     void
+        dishes.stream().forEach(dish -> System.out.println(dish.getCalories()));
+        //10、 count     long
+        long count = dishes.stream().count();
+        //11、 collect   void
+
+        //12、规约 reduce
+        double sum1 = dishes.stream().map(Dish::getCalories).reduce(0d, Double::sum);// 有初始值
+        Optional<Double> sum2 = dishes.stream().map(Dish::getCalories).reduce((a, b) -> a * b);// 无初始值
+        Optional<Double> sum3 = dishes.stream().map(Dish::getCalories).reduce(Double::max);// 无初始值
+
+        //13、数值流
+//        int sum4 = dishes.stream().map(Dish::getCalories).sum();// Streams 接口没有定义 sum 方法，因为 dished.stream 返回 Stream<Dish> 而将 Dish 求和是没有意义的
+//        但是 stream 提供了其他的数值流方法
+
+        // Stream 转换为数值流
+        double sum4 = dishes.stream().mapToDouble(Dish::getCalories).sum();
+        // 数值流转换为 Stream
+        DoubleStream ds = dishes.stream().mapToDouble(Dish::getCalories);
+        Stream<Double> box1 = ds.boxed();
+
+        //14、数值范围 Java8 引入了 IntStream 和 LongStream 静态方法，生成范围，第一个参数接收起始值，第二个参数接收结束值
+        IntStream even1 = IntStream.range(1, 100).filter(n -> (n & 1) == 0);//不含尾
+        IntStream even2 = IntStream.range(1, 100).filter(n -> (n & 1) == 0);//含尾
+
+        //13、例：筛选指定范围的勾股数
+        Stream<double[]> pythagoreanTriples = IntStream.rangeClosed(1, 100).boxed()
+                .flatMap(a ->
+                        IntStream.rangeClosed(a, 100).mapToObj(b ->
+                                new double[]{a, b, Math.sqrt(a * a + b * b)}
+                        )
+                )
+                .filter(t -> t[2] % 1 == 0);//第三个计算出来的值为整数
+
+        //14、创建流
+
+        //14.1 由值创建
+        Stream<String> stream1 = Stream.of("Java 8", "Stream", "Create");
+        stream1.map(String::toUpperCase).forEach(System.out::println);
+
+        //14.2 由数组创建
+        int[] num = {1, 3, 4, 5, 7, 9, 10};
+        IntStream stream2 = Arrays.stream(num);
+        int sum = stream2.sum();
+
+        //14.3 由文件创建
+        long uniqueWords = 0;
+        try (
+                Stream<String> lines = Files.lines(Paths.get("datas.txt"), Charset.defaultCharset())) {
+            uniqueWords = lines.flatMap(line -> Arrays.stream(line.split(" ")))
+                    .distinct()
+                    .count();
+        } catch (IOException e) {
+
+        }
+
+        //14.3 由函数生成
+        Stream.iterate(0, n -> n + 2).limit(10).forEach(System.out::println);//该操作将生成无限流，即没有结尾，所以我们使用了 limit 限制流的大小
+        Stream.generate(Math::random).limit(10).forEach(System.out::println);//该操作将同样生成无线流，所以使用 limit 来限制了大小
+
+        //14 例：斐波那契数列
+        IntStream twos = IntStream.generate(new IntSupplier() {
+            private int prev = 0;
+            private int curr = 1;
+            @Override
+            public int getAsInt() {
+                int oldPrev = this.prev;
+                int next = this.prev + this.curr;
+                this.prev = this.curr;
+                this.curr = next;
+                return oldPrev;
+            }
+        });
+        twos.limit(20).forEach(System.out::print);
+
     }
 }
 
@@ -116,5 +262,10 @@ class Dish {
 
     public void setCalories(Double calories) {
         this.calories = calories;
+    }
+
+    //素食
+    public boolean isVegetarian() {
+        return !"meat".equals(this.getType());
     }
 }
