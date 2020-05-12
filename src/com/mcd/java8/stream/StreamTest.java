@@ -2,6 +2,7 @@ package com.mcd.java8.stream;
 
 import org.junit.Test;
 
+import javax.swing.text.html.Option;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.nio.charset.Charset;
@@ -15,8 +16,9 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static java.util.Comparator.comparing;
-import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.toList;
+import static java.util.Comparator.comparingDouble;
+import static java.util.stream.Collectors.*;
+import static java.util.stream.Collectors.joining;
 
 public class StreamTest {
     private List<Dish> dishes = new ArrayList<>();
@@ -215,6 +217,7 @@ public class StreamTest {
         IntStream twos = IntStream.generate(new IntSupplier() {
             private int prev = 0;
             private int curr = 1;
+
             @Override
             public int getAsInt() {
                 int oldPrev = this.prev;
@@ -225,6 +228,48 @@ public class StreamTest {
             }
         });
         twos.limit(20).forEach(System.out::print);
+
+        //15、Collectors 收集器方法
+        //15.1 groupingBy
+        //一级分组
+        Map<String, List<Dish>> map1 = dishes.stream().collect(groupingBy(Dish::getType));
+        //多级分组 - 1
+        Map<String, Map<String, List<Dish>>> map2 = dishes.stream().collect(groupingBy(Dish::getType
+                , groupingBy(dish ->
+                        dish.getCalories() < 400d ? "LOW" :
+                                dish.getCalories() < 600d ? "NORMAL" :
+                                        "HIGHT"
+                )));
+        //多级分组 - 2
+        Map<String, Long> map3 = dishes.stream().collect(groupingBy(Dish::getType
+                , counting()));
+
+        /* * 实际上， groupingBy (f) 就是 groupingBy(f, toList()) 的缩写 * */
+        //多级分组 - 3
+        Map<String, Optional<Dish>> map4 = dishes.stream().collect(groupingBy(Dish::getType
+                , maxBy(comparingDouble(Dish::getCalories))));
+
+        //15.2 toList
+        List<Dish> list1 = dishes.stream().collect(toList());
+        //15.3 counting
+        long long1 = dishes.stream().collect(counting());
+        //15.4 maxBy
+        Optional<Dish> max = dishes.stream().collect(maxBy(Comparator.comparingDouble(Dish::getCalories)));
+        //15.5 minBy
+        Optional<Dish> min = dishes.stream().collect(minBy(Comparator.comparing(Dish::getCalories)));
+        //15.6 summingInt summingDouble ...
+        double total = dishes.stream().collect(summingDouble(Dish::getCalories));//求和
+        double avg = dishes.stream().collect(averagingDouble(Dish::getCalories));//平均
+        // 想到得到多个结果时，可以使用 *SummaryStatistics 收集器
+        DoubleSummaryStatistics iss = dishes.stream().collect(summarizingDouble(Dish::getCalories));
+        //DoubleSummaryStatistics{count = 1, sum = 1, min = 1, average = 1, max = 1}
+        double count0 = iss.getCount();
+        double sum0 = iss.getSum();
+
+        //16、字符串连接 joining
+        String names0 = dishes.stream().map(Dish::getName).collect(joining());
+        String names1 = dishes.stream().map(Dish::getName).collect(joining(", "));//可以重载分隔符
+
 
     }
 }
@@ -267,5 +312,14 @@ class Dish {
     //素食
     public boolean isVegetarian() {
         return !"meat".equals(this.getType());
+    }
+
+    @Override
+    public String toString() {
+        return "Dish{" +
+                "name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", calories=" + calories +
+                '}';
     }
 }
