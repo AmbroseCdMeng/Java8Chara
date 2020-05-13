@@ -238,7 +238,7 @@ public class StreamTest {
                 , groupingBy(dish ->
                         dish.getCalories() < 400d ? "LOW" :
                                 dish.getCalories() < 600d ? "NORMAL" :
-                                        "HIGHT"
+                                        "HEIGHT"
                 )));
         //多级分组 - 2
         Map<String, Long> map3 = dishes.stream().collect(groupingBy(Dish::getType
@@ -269,8 +269,6 @@ public class StreamTest {
         //16、字符串连接 joining
         String names0 = dishes.stream().map(Dish::getName).collect(joining());
         String names1 = dishes.stream().map(Dish::getName).collect(joining(", "));//可以重载分隔符
-
-
     }
 }
 

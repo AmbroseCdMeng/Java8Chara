@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c260a11-faee-4617-9572-a2a8daca0ad4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/parallel/ParallelTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/parallel/StreamPerfTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/stream/CollectorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/20200507_Java8/com/mcd/java8/stream/Dish.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/20200507_Java8/com/mcd/java8/stream/Dish.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/20200507_Java8/com/mcd/java8/stream/StreamTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/20200507_Java8/com/mcd/java8/stream/StreamTest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/20200507_Java8/com/mcd/java8/stream/StreamTest$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/20200507_Java8/com/mcd/java8/stream/StreamTest$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/20200507_Java8/com/mcd/java8/stream/StreamTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/20200507_Java8/com/mcd/java8/stream/StreamTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mcd/java8/stream/StreamTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mcd/java8/stream/StreamTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,23 +58,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.StreamTest.test">
-    <configuration name="LambdaTest.compareTo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="20200507_Java8" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.mcd.java8.lambda.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.mcd.java8.lambda" />
-      <option name="MAIN_CLASS_NAME" value="com.mcd.java8.lambda.LambdaTest" />
-      <option name="METHOD_NAME" value="compareTo" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.StreamPerfTest.streamPerf">
     <configuration name="LambdaTest.predicate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="20200507_Java8" />
       <extension name="coverage">
@@ -98,11 +91,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StreamPerfTest.streamPerf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="20200507_Java8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mcd.java8.parallel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mcd.java8.parallel" />
+      <option name="MAIN_CLASS_NAME" value="com.mcd.java8.parallel.StreamPerfTest" />
+      <option name="METHOD_NAME" value="streamPerf" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StreamTest.filterCalories_8_groupBy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="20200507_Java8" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.mcd.java8.stream.*" />
+          <option name="PATTERN" value="com.mcd.java8.parallel.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -118,7 +127,7 @@
       <module name="20200507_Java8" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.mcd.java8.stream.*" />
+          <option name="PATTERN" value="com.mcd.java8.parallel.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -132,11 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.StreamPerfTest.streamPerf" />
         <item itemvalue="JUnit.StreamTest.test" />
         <item itemvalue="JUnit.StreamTest.filterCalories_8_groupBy" />
         <item itemvalue="JUnit.LambdaTest.predicateComplex" />
         <item itemvalue="JUnit.LambdaTest.predicate" />
-        <item itemvalue="JUnit.LambdaTest.compareTo" />
       </list>
     </recent_temporary>
   </component>
@@ -152,7 +161,7 @@
       <updated>1588814199341</updated>
       <workItem from="1588814203104" duration="9546000" />
       <workItem from="1588829624373" duration="2268000" />
-      <workItem from="1588833815496" duration="39433000" />
+      <workItem from="1588833815496" duration="50343000" />
     </task>
     <servers />
   </component>
@@ -174,9 +183,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/mcd/java8/stream/StreamTest.java</url>
-          <line>108</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/src/com/mcd/java8/parallel/StreamPerfTest.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
