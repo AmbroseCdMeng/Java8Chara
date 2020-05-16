@@ -1,5 +1,7 @@
 package com.mcd.java8.parallel;
 
+import java.util.concurrent.Flow;
+import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 /**
@@ -36,5 +38,47 @@ public class ParallelTest {
          *
          * 换句话说，目前，还没有办法专门为某个并行流执行这个值。
          */
+    }
+
+    public static long iterativeSum(long n) {
+        long result = 0;
+        for (long i = 1L; i <= n; i++)
+            result += i;
+        return result;
+    }
+
+
+    /**
+     * 生成随机数，求和
+     */
+    public static long rangedSum(long n) {
+        return LongStream.rangeClosed(1, n).reduce(0L, Long::sum);
+    }
+
+    public static long parallelRangedSum(long n) {
+        return LongStream.rangeClosed(1, n).parallel().reduce(0L, Long::sum);
+    }
+
+    /**
+     * 并行算法常见陷阱示例 求和
+     */
+    public static long sideEffectSum(long n) {
+        Accumulator accumulator = new Accumulator();
+        LongStream.rangeClosed(1, n).forEach(accumulator::add);
+        return accumulator.total;
+    }
+
+    public static long parallelSideEffectSum(long n) {
+        Accumulator accumulator = new Accumulator();
+        LongStream.rangeClosed(1, n).parallel().forEach(accumulator::add);
+        return accumulator.total;
+    }
+}
+
+class Accumulator {
+    public long total = 0;
+
+    public void add(long value) {
+        total += value;
     }
 }
