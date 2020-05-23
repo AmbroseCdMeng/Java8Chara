@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c260a11-faee-4617-9572-a2a8daca0ad4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/parallel/ForkJoinSumCalculator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/parallel/SpliteratorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/20200507_Java8/com/mcd/java8/parallel/ParallelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/20200507_Java8/com/mcd/java8/parallel/ParallelTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/20200507_Java8/com/mcd/java8/parallel/StreamPerfTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/20200507_Java8/com/mcd/java8/parallel/StreamPerfTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mcd/java8/parallel/ParallelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mcd/java8/parallel/ParallelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mcd/java8/parallel/StreamPerfTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mcd/java8/parallel/StreamPerfTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,23 +51,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.StreamPerfTest.streamPerf">
-    <configuration name="LambdaTest.predicate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="20200507_Java8" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.mcd.java8.lambda.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.mcd.java8.lambda" />
-      <option name="MAIN_CLASS_NAME" value="com.mcd.java8.lambda.LambdaTest" />
-      <option name="METHOD_NAME" value="predicate" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.SpliteratorTest.test">
     <configuration name="LambdaTest.predicateComplex" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="20200507_Java8" />
       <extension name="coverage">
@@ -80,6 +63,22 @@
       <option name="PACKAGE_NAME" value="com.mcd.java8.lambda" />
       <option name="MAIN_CLASS_NAME" value="com.mcd.java8.lambda.LambdaTest" />
       <option name="METHOD_NAME" value="predicateComplex" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpliteratorTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="20200507_Java8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mcd.java8.parallel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mcd.java8.parallel" />
+      <option name="MAIN_CLASS_NAME" value="com.mcd.java8.parallel.SpliteratorTest" />
+      <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -135,11 +134,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SpliteratorTest.test" />
         <item itemvalue="JUnit.StreamPerfTest.streamPerf" />
         <item itemvalue="JUnit.StreamTest.test" />
         <item itemvalue="JUnit.StreamTest.filterCalories_8_groupBy" />
         <item itemvalue="JUnit.LambdaTest.predicateComplex" />
-        <item itemvalue="JUnit.LambdaTest.predicate" />
       </list>
     </recent_temporary>
   </component>
@@ -155,7 +154,7 @@
       <updated>1588814199341</updated>
       <workItem from="1588814203104" duration="9546000" />
       <workItem from="1588829624373" duration="2268000" />
-      <workItem from="1588833815496" duration="62597000" />
+      <workItem from="1588833815496" duration="83790000" />
     </task>
     <servers />
   </component>
