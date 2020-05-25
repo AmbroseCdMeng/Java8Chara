@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c260a11-faee-4617-9572-a2a8daca0ad4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/parallel/ForkJoinSumCalculator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/parallel/SpliteratorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/20200507_Java8/com/mcd/java8/parallel/StreamPerfTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/20200507_Java8/com/mcd/java8/parallel/StreamPerfTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mcd/java8/parallel/SpliteratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mcd/java8/parallel/SpliteratorTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +152,7 @@
       <updated>1588814199341</updated>
       <workItem from="1588814203104" duration="9546000" />
       <workItem from="1588829624373" duration="2268000" />
-      <workItem from="1588833815496" duration="83790000" />
+      <workItem from="1588833815496" duration="94641000" />
     </task>
     <servers />
   </component>
