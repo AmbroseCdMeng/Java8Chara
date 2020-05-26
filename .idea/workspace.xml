@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c260a11-faee-4617-9572-a2a8daca0ad4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/design_patterns/ChainOfResponsibilityMode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/design_patterns/FactoryMode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/default_function/EX_1_C.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/default_function/EX_2_C.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/default_function/EX_3_C.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/default_function/Iterator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/default_function/Monster.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/default_function/Moveable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/default_function/Resizable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/default_function/Rotatable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/default_function/Sized.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mcd/java8/design_patterns/ObserverMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mcd/java8/design_patterns/ObserverMode.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,6 +22,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -51,7 +58,23 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ChainOfResponsibilityMode.test">
+  <component name="RunManager" selected="JUnit.EX_1_C.printHello">
+    <configuration name="冲突1_选择最具体实现默认方法的接口.printHello" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="20200507_Java8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mcd.java8.default_function.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mcd.java8.default_function" />
+      <option name="MAIN_CLASS_NAME" value="com.mcd.java8.default_function.冲突1_选择最具体实现默认方法的接口" />
+      <option name="METHOD_NAME" value="printHello" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ChainOfResponsibilityMode.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="20200507_Java8" />
       <extension name="coverage">
@@ -63,6 +86,22 @@
       <option name="PACKAGE_NAME" value="com.mcd.java8.design_patterns" />
       <option name="MAIN_CLASS_NAME" value="com.mcd.java8.design_patterns.ChainOfResponsibilityMode" />
       <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EX_1_C.printHello" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="20200507_Java8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mcd.java8.default_function.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mcd.java8.default_function" />
+      <option name="MAIN_CLASS_NAME" value="com.mcd.java8.default_function.EX_1_C" />
+      <option name="METHOD_NAME" value="printHello" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -100,45 +139,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StreamTest.filterCalories_8_groupBy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="20200507_Java8" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.mcd.java8.parallel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.mcd.java8.stream" />
-      <option name="MAIN_CLASS_NAME" value="com.mcd.java8.stream.StreamTest" />
-      <option name="METHOD_NAME" value="filterCalories_8_groupBy" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StreamTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="20200507_Java8" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.mcd.java8.parallel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.mcd.java8.stream" />
-      <option name="MAIN_CLASS_NAME" value="com.mcd.java8.stream.StreamTest" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EX_1_C.printHello" />
+        <item itemvalue="JUnit.冲突1_选择最具体实现默认方法的接口.printHello" />
         <item itemvalue="JUnit.ChainOfResponsibilityMode.test" />
         <item itemvalue="JUnit.SpliteratorTest.test" />
         <item itemvalue="JUnit.StreamPerfTest.streamPerf" />
-        <item itemvalue="JUnit.StreamTest.test" />
-        <item itemvalue="JUnit.StreamTest.filterCalories_8_groupBy" />
       </list>
     </recent_temporary>
   </component>
@@ -154,7 +161,7 @@
       <updated>1588814199341</updated>
       <workItem from="1588814203104" duration="9546000" />
       <workItem from="1588829624373" duration="2268000" />
-      <workItem from="1588833815496" duration="111278000" />
+      <workItem from="1588833815496" duration="116867000" />
     </task>
     <servers />
   </component>
