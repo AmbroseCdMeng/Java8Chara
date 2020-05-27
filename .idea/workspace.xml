@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c260a11-faee-4617-9572-a2a8daca0ad4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/default_function/EX_1_C.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/default_function/EX_2_C.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/default_function/EX_3_C.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/default_function/Iterator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/default_function/Monster.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/default_function/Moveable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/default_function/Resizable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/default_function/Rotatable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/default_function/Sized.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/optional/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/optional/Insurance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/optional/OptionalTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/optional/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -161,7 +156,7 @@
       <updated>1588814199341</updated>
       <workItem from="1588814203104" duration="9546000" />
       <workItem from="1588829624373" duration="2268000" />
-      <workItem from="1588833815496" duration="116867000" />
+      <workItem from="1588833815496" duration="127450000" />
     </task>
     <servers />
   </component>
