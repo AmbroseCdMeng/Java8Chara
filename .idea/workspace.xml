@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c260a11-faee-4617-9572-a2a8daca0ad4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/optional/Car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/optional/Insurance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/optional/OptionalTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/optional/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/completableFuture/CompletableFutureTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/completableFuture/FutureTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mcd/java8/completableFuture/MyTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/20200507_Java8/com/mcd/java8/default_function/EX_1A.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/20200507_Java8/com/mcd/java8/default_function/EX_1B.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/20200507_Java8/com/mcd/java8/default_function/EX_1_C.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/20200507_Java8/com/mcd/java8/default_function/EX_1_C.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +55,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.EX_1_C.printHello">
+  <component name="RunManager" selected="JUnit.MyTest.validatePrices">
     <configuration name="冲突1_选择最具体实现默认方法的接口.printHello" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="20200507_Java8" />
       <extension name="coverage">
@@ -86,6 +88,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CompletableFutureTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="20200507_Java8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mcd.java8.completableFuture.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mcd.java8.completableFuture" />
+      <option name="MAIN_CLASS_NAME" value="com.mcd.java8.completableFuture.CompletableFutureTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EX_1_C.printHello" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="20200507_Java8" />
       <extension name="coverage">
@@ -102,33 +120,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SpliteratorTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MyTest.validatePrices" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="20200507_Java8" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.mcd.java8.parallel.*" />
+          <option name="PATTERN" value="com.mcd.java8.completableFuture.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.mcd.java8.parallel" />
-      <option name="MAIN_CLASS_NAME" value="com.mcd.java8.parallel.SpliteratorTest" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StreamPerfTest.streamPerf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="20200507_Java8" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.mcd.java8.parallel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.mcd.java8.parallel" />
-      <option name="MAIN_CLASS_NAME" value="com.mcd.java8.parallel.StreamPerfTest" />
-      <option name="METHOD_NAME" value="streamPerf" />
+      <option name="PACKAGE_NAME" value="com.mcd.java8.completableFuture" />
+      <option name="MAIN_CLASS_NAME" value="com.mcd.java8.completableFuture.MyTest" />
+      <option name="METHOD_NAME" value="validatePrices" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -136,11 +138,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MyTest.validatePrices" />
+        <item itemvalue="JUnit.CompletableFutureTest.test" />
         <item itemvalue="JUnit.EX_1_C.printHello" />
         <item itemvalue="JUnit.冲突1_选择最具体实现默认方法的接口.printHello" />
         <item itemvalue="JUnit.ChainOfResponsibilityMode.test" />
-        <item itemvalue="JUnit.SpliteratorTest.test" />
-        <item itemvalue="JUnit.StreamPerfTest.streamPerf" />
       </list>
     </recent_temporary>
   </component>
@@ -156,7 +158,7 @@
       <updated>1588814199341</updated>
       <workItem from="1588814203104" duration="9546000" />
       <workItem from="1588829624373" duration="2268000" />
-      <workItem from="1588833815496" duration="127450000" />
+      <workItem from="1588833815496" duration="150319000" />
     </task>
     <servers />
   </component>
